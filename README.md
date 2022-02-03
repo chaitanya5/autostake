@@ -1,15 +1,10 @@
-# Basic Sample Hardhat Project
+# Autostake from Pancakeswap
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+1. ```npm install```
+2. Rename ```.env.example``` file to ```.env```
+2. Put your mnemonic/seed phrase
+3. First compile
+   - ```npm run compile```
+4. To deploy on a testnet like Polygon Mumbai
+   - ```npm run deploy``` 
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```

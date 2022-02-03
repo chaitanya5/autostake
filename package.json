@@ -1,13 +1,14 @@
 {
-  "name": "autostake",
+  "name": "Autostake",
   "version": "1.0.0",
-  "description": "",
+  "description": "Autostake from Pancakeswap",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy-contracts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rout Chaitanya",
   "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
