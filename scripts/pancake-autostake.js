@@ -5,12 +5,12 @@ async function main() {
   [owner] = await ethers.getSigners(); // List of HD wallets
 
   // Deploy Cake
-  const Cake = await hre.ethers.getContractFactory("contracts/MasterChef.sol:CakeToken");
+  const Cake = await hre.ethers.getContractFactory("contracts/pancakeswap/MasterChef.sol:CakeToken");
   const cake = await Cake.deploy();
   await cake.deployed();
 
   // Deploy SyrupBar
-  const SyrupBar = await hre.ethers.getContractFactory("contracts/SyrupBar.sol:SyrupBar");
+  const SyrupBar = await hre.ethers.getContractFactory("contracts/pancakeswap/SyrupBar.sol:SyrupBar");
   const syrup = await SyrupBar.deploy(cake.address);
   await syrup.deployed();
 
@@ -56,4 +56,9 @@ main()
 // Converts token units to smallest individual token unit, eg: 1 DAI = 10^18 units 
 const parseUnits = (amount, units) => {
   return ethers.utils.parseUnits(amount.toString(), units);
+}
+
+// Converts token units from smallest individual unit to token unit, opposite of parseUnits
+const formatUnits = (amount, units) => {
+  return ethers.utils.formatUnits(amount.toString(), units);
 }
