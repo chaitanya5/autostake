@@ -839,7 +839,7 @@ contract SutekuVault is Ownable, Pausable {
     struct UserInfo {
         uint256 shares; // number of shares for a user
         uint256 lastDepositedTime; // keeps track of deposited time for potential penalty
-        uint256 cakeAtLastUserAction; // keeps track of suteku deposited at the last user action
+        uint256 sutekuAtLastUserAction; // keeps track of suteku deposited at the last user action
         uint256 lastUserActionTime; // keeps track of the last user action time
     }
 
@@ -935,7 +935,7 @@ contract SutekuVault is Ownable, Pausable {
 
         totalShares = totalShares.add(currentShares);
 
-        user.cakeAtLastUserAction = user.shares.mul(balanceOf()).div(totalShares);
+        user.sutekuAtLastUserAction = user.shares.mul(balanceOf()).div(totalShares);
         user.lastUserActionTime = block.timestamp;
 
         _earn();
@@ -1133,9 +1133,9 @@ contract SutekuVault is Ownable, Pausable {
         }
 
         if (user.shares > 0) {
-            user.cakeAtLastUserAction = user.shares.mul(balanceOf()).div(totalShares);
+            user.sutekuAtLastUserAction = user.shares.mul(balanceOf()).div(totalShares);
         } else {
-            user.cakeAtLastUserAction = 0;
+            user.sutekuAtLastUserAction = 0;
         }
 
         user.lastUserActionTime = block.timestamp;
